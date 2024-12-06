@@ -1,11 +1,11 @@
-#include <stdint.h>
+ï»¿#include <stdint.h>
 #include <type_traits>
 template <uint16_t N>
 struct Fib {
     constexpr static int value = Fib<N - 2>::value + Fib<N - 1>::value;
 };
 
-//integral_constantÖĞÓĞÒ»¸ö³ÉÔ±½Ğvalue
+//integral_constantä¸­æœ‰ä¸€ä¸ªæˆå‘˜å«value
 template <>
 struct Fib<0> : std::integral_constant<uint64_t, 0> {};
 

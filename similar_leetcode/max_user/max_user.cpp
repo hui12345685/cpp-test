@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include<vector>
 #include <algorithm>
 
@@ -29,7 +29,7 @@ int MaxUser(std::vector<std::pair<int, int>>& times) {
   if (times.size() <= 1) {
     return times.size();
   }
-  //½«¶şÎ¬Êı×é´òÆ½
+  //å°†äºŒç»´æ•°ç»„æ‰“å¹³
   std::vector<Time> times_start_end;
   for (auto& tm : times) {
     Time start;
@@ -61,7 +61,7 @@ int MaxUser(std::vector<std::pair<int, int>>& times) {
   return max_usesr;
 }
 
-/*ÒÑÖªÃ¿¸öÓÃ»§µÄµÇÂ¼µÇ³öÊ±¼ä£¬ÇóÔÚÏßµÄ×î´óÓÃ»§Êı
+/*å·²çŸ¥æ¯ä¸ªç”¨æˆ·çš„ç™»å½•ç™»å‡ºæ—¶é—´ï¼Œæ±‚åœ¨çº¿çš„æœ€å¤§ç”¨æˆ·æ•°
 */
 int main() {
   std::vector<std::pair<int, int>> times;

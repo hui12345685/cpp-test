@@ -1,10 +1,10 @@
-#include <string>
+ï»¿#include <string>
 #include <iostream>
 #include <vector>
 
-//´óÊıÏà¼Ó
+//å¤§æ•°ç›¸åŠ 
 std::string addStrings(const std::string& num1, const std::string& num2) {
-  //num1 ºÍnum2 ¶¼Ö»°üº¬Êı×Ö 0-9,ËùÒÔ²»ÔÚ¶îÍâcheck£¬·ñÔòĞèÒªcheckÏÂ
+  //num1 å’Œnum2 éƒ½åªåŒ…å«æ•°å­— 0-9,æ‰€ä»¥ä¸åœ¨é¢å¤–checkï¼Œå¦åˆ™éœ€è¦checkä¸‹
   std::string ret_reverse;
   int len1 = num1.size();
   int len2 = num2.size();
@@ -17,34 +17,34 @@ std::string addStrings(const std::string& num1, const std::string& num2) {
       tmp = (num1[idx] - '0') + (num2[jdx] - '0') + jingwei;
     }
     else if (idx >= 0 && jdx < 0) {
-      //asciiÂë9+1=:£¬²»ÊÇ10£¬ËùÒÔÒª×ªÎªintÀ´²Ù×÷
+      //asciiç 9+1=:ï¼Œä¸æ˜¯10ï¼Œæ‰€ä»¥è¦è½¬ä¸ºintæ¥æ“ä½œ
       tmp = num1[idx] - '0' + jingwei;
     }
     else if (idx < 0 && jdx >= 0) {
-      //asciiÂë9+1=:£¬²»ÊÇ10£¬ËùÒÔÒª×ªÎªintÀ´²Ù×÷
+      //asciiç 9+1=:ï¼Œä¸æ˜¯10ï¼Œæ‰€ä»¥è¦è½¬ä¸ºintæ¥æ“ä½œ
       tmp = num2[jdx] - '0' + jingwei;
     }
     //std::cout << ".........." << tmp << std::endl;
 
     if (tmp >= 10) {
       tmp -= 10;
-      ret_reverse += '0' + tmp; //ĞèÒª¼õÈ¥10Ö®ºóÔÙ¼Ó
-      jingwei = 1; //¸øÏÂ´ÎÑ­»·ÓÃ£¬ĞèÒª·Åµ½+ºóÃæ
+      ret_reverse += '0' + tmp; //éœ€è¦å‡å»10ä¹‹åå†åŠ 
+      jingwei = 1; //ç»™ä¸‹æ¬¡å¾ªç¯ç”¨ï¼Œéœ€è¦æ”¾åˆ°+åé¢
     }
     else {
       ret_reverse += '0' + tmp;
-      jingwei = 0; //¸øÏÂ´ÎÑ­»·ÓÃ£¬ĞèÒª·Åµ½+ºóÃæ
+      jingwei = 0; //ç»™ä¸‹æ¬¡å¾ªç¯ç”¨ï¼Œéœ€è¦æ”¾åˆ°+åé¢
     }
     idx--;
     jdx--;
     //std::cout << ".........." << ret_reverse << std::endl;
   }
-  //×îºóÒ»¸ö½øÎ»²»Òª¶ªÁË
+  //æœ€åä¸€ä¸ªè¿›ä½ä¸è¦ä¸¢äº†
   if (1 == jingwei) {
     ret_reverse += '0' + 1;
   }
 
-  //×ªÖÃÒ»ÏÂ
+  //è½¬ç½®ä¸€ä¸‹
   std::string ret;
   for (int idx = ret_reverse.size() - 1; idx >= 0; idx--) {
     ret += ret_reverse[idx];
@@ -53,7 +53,7 @@ std::string addStrings(const std::string& num1, const std::string& num2) {
   return ret;
 }
 
-//¶àÎ»Êı³ËÒÔÒ»Î»Êı
+//å¤šä½æ•°ä¹˜ä»¥ä¸€ä½æ•°
 std::string multiply_siglenum(const std::string& num1, char num2) {
   if (num2 == '0') {
     return "0";
@@ -74,7 +74,7 @@ std::string multiply_siglenum(const std::string& num1, char num2) {
     ret_reverse += add + '0';
   }
 
-  //×ªÖÃÒ»ÏÂ
+  //è½¬ç½®ä¸€ä¸‹
   std::string ret;
   for (int idx = ret_reverse.size() - 1; idx >= 0; idx--) {
     ret += ret_reverse[idx];
@@ -83,20 +83,20 @@ std::string multiply_siglenum(const std::string& num1, char num2) {
   return ret;
 }
 
-//´óÊıÏà³Ë
+//å¤§æ•°ç›¸ä¹˜
 std::string multiply(const std::string& num1, const std::string& num2) {
   if (num1 == "0" || num2 == "0") {
-    return "0"; //ÓĞÒ»¸öÎª0£¬Ôò·µ»Ø0
+    return "0"; //æœ‰ä¸€ä¸ªä¸º0ï¼Œåˆ™è¿”å›0
   }
-  //ÓÉÓÚnum1ºÍnum2Ö»ÄÜÓÉÊı×Ö×é³É£¬ËùÒÔ²»ÔÙÁíÍâcheck£¬·ñÔòĞèÒªcheck
+  //ç”±äºnum1å’Œnum2åªèƒ½ç”±æ•°å­—ç»„æˆï¼Œæ‰€ä»¥ä¸å†å¦å¤–checkï¼Œå¦åˆ™éœ€è¦check
   int len1 = num1.size();
   int len2 = num2.size();
-  //ÕâÀï³¤¶ÈËæ±ãÈ¡len1»¹ÊÇlen2£¬ÕâÀïÈ¡len2
+  //è¿™é‡Œé•¿åº¦éšä¾¿å–len1è¿˜æ˜¯len2ï¼Œè¿™é‡Œå–len2
   std::vector<std::string> bit_ans(len2);
   int add_zero = 0;
   for (int idx = len2 - 1; idx >= 0; idx--) {
     bit_ans[idx] = multiply_siglenum(num1, num2[idx]);
-    //´ÓµÚ¶şÎ»¿ªÊ¼Òª²¹0
+    //ä»ç¬¬äºŒä½å¼€å§‹è¦è¡¥0
     for (int aa = 0; aa < add_zero; aa++) {
       bit_ans[idx] += '0';
     }
@@ -112,10 +112,10 @@ std::string multiply(const std::string& num1, const std::string& num2) {
 }
 
 /*
-´óÊıÏà³Ë±ê¼ÇµÄÊÇÖĞµÈ£¬µ«ÊÇÕâÌâÊµ¼ÊºÜÄÑ£¬ºÜ·ÑÊ±¼ä,¶øÇÒÒª¿¼ÂÇ¸÷ÖÖÌõ¼şºÍ±ß½ç£¬ĞèÒªdebug
-ĞèÒªÊµÏÖ:
-1£º´óÊıÏà¼Ó
-2£º¶àÎ»Êı³ÂÒ»Î»Êı
+å¤§æ•°ç›¸ä¹˜æ ‡è®°çš„æ˜¯ä¸­ç­‰ï¼Œä½†æ˜¯è¿™é¢˜å®é™…å¾ˆéš¾ï¼Œå¾ˆè´¹æ—¶é—´,è€Œä¸”è¦è€ƒè™‘å„ç§æ¡ä»¶å’Œè¾¹ç•Œï¼Œéœ€è¦debug
+éœ€è¦å®ç°:
+1ï¼šå¤§æ•°ç›¸åŠ 
+2ï¼šå¤šä½æ•°é™ˆä¸€ä½æ•°
 */
 int main() {
   std::string num1("123");

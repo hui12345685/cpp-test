@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <vector>
 #include <string>
 #include <queue>
@@ -19,12 +19,12 @@ int Migong2(std::vector<std::string>& data, std::vector<int>& start, std::vector
 			int x = pos.first + dir[i].first;
 			int y = pos.second + dir[i].second;
 			if (x < 0 || x >= data.size() || y < 0 || y >= data[0].size() || data[x][y] == '#') {
-				//²»ºÏ·¨µÄÎ»ÖÃ£¬Ìø¹ı
+				//ä¸åˆæ³•çš„ä½ç½®ï¼Œè·³è¿‡
 				continue;
 			}
 			dist[x][y] = dist[pos.first][pos.second] + 1;
 			if (x == end[0] && y == end[1]) {
-				//ÕÒµ½½áÊøÎ»ÖÃÁË
+				//æ‰¾åˆ°ç»“æŸä½ç½®äº†
 				return dist[x][y];
 			}
 			que.push(std::pair<int, int>(x, y));
@@ -37,8 +37,8 @@ int Migong2(std::vector<std::string>& data, std::vector<int>& start, std::vector
 
 void Test2() {
 	time_t tbegin = time(nullptr);
-	//S±íÊ¾¿ªÊ¼µÄÎ»ÖÃ£¬G±íÊ¾½áÊøµÄÎ»ÖÃ
-	//#±íÊ¾Ç½£¬²»ÄÜ×ß£¬.±íÊ¾¿ÉÒÔ×ß
+	//Sè¡¨ç¤ºå¼€å§‹çš„ä½ç½®ï¼ŒGè¡¨ç¤ºç»“æŸçš„ä½ç½®
+	//#è¡¨ç¤ºå¢™ï¼Œä¸èƒ½èµ°ï¼Œ.è¡¨ç¤ºå¯ä»¥èµ°
 	std::vector<std::string>data{
 			"#S######.#",
 			"......#..#",
@@ -64,7 +64,7 @@ int Migong(std::vector<std::string>& data, std::vector<int>& start, std::vector<
 	int min_path = 0;
 	std::queue<std::pair<int, int>> que;
 	que.push(std::pair<int, int>(start[0], start[1]));
-	//×ß¹ıµÄÂ·ÒªÉèÖÃÎªÇ¿£¬²»ÒªÔÙ×ßÁË£¬ÕâÑù²ÅÄÜÌá¸ßĞ§ÂÊ,·ñÔòĞ§ÂÊºÜ²î
+	//èµ°è¿‡çš„è·¯è¦è®¾ç½®ä¸ºå¼ºï¼Œä¸è¦å†èµ°äº†ï¼Œè¿™æ ·æ‰èƒ½æé«˜æ•ˆç‡,å¦åˆ™æ•ˆç‡å¾ˆå·®
 	data[start[0]][start[1]] = '#';
 	while (!que.empty()) {
 		int size = que.size();
@@ -78,19 +78,19 @@ int Migong(std::vector<std::string>& data, std::vector<int>& start, std::vector<
 				int x = pos.first + dir[i].first;
 				int y = pos.second + dir[i].second;
 				if (x == end[0] && y == end[1]) {
-					//ÕÒµ½½áÊøÎ»ÖÃÁË
+					//æ‰¾åˆ°ç»“æŸä½ç½®äº†
 					std::cout << "loop count :" << loop_cnt << std::endl;
 					return min_path;
 				}
 
-				//µ½´ïÉÏÏÂ×óÓÒ£¬ËÄ¸öÎ»ÖÃ×î¶ÌÂ·¾¢¶¼ÊÇmin_path
+				//åˆ°è¾¾ä¸Šä¸‹å·¦å³ï¼Œå››ä¸ªä½ç½®æœ€çŸ­è·¯åŠ²éƒ½æ˜¯min_path
 				if (x >= 0 && x < data.size() && y >= 0 && y < data[0].size()) {
 					if (data[x][y] == '#') {
-						//Óöµ½Ç½£¬²»Í¨
+						//é‡åˆ°å¢™ï¼Œä¸é€š
 						continue;
 					}
 					que.push(std::pair<int, int>(x, y));
-					//×ß¹ıµÄÂ·ÒªÉèÖÃÎªÇ¿£¬²»ÒªÔÙ×ßÁË£¬ÕâÑù²ÅÄÜÌá¸ßĞ§ÂÊ,·ñÔòĞ§ÂÊºÜ²î
+					//èµ°è¿‡çš„è·¯è¦è®¾ç½®ä¸ºå¼ºï¼Œä¸è¦å†èµ°äº†ï¼Œè¿™æ ·æ‰èƒ½æé«˜æ•ˆç‡,å¦åˆ™æ•ˆç‡å¾ˆå·®
 					data[x][y] = '#';
 				}
 			}
@@ -101,8 +101,8 @@ int Migong(std::vector<std::string>& data, std::vector<int>& start, std::vector<
 }
 
 void Test1() {
-	//S±íÊ¾¿ªÊ¼µÄÎ»ÖÃ£¬G±íÊ¾½áÊøµÄÎ»ÖÃ
-	//#±íÊ¾Ç½£¬²»ÄÜ×ß£¬.±íÊ¾¿ÉÒÔ×ß
+	//Sè¡¨ç¤ºå¼€å§‹çš„ä½ç½®ï¼ŒGè¡¨ç¤ºç»“æŸçš„ä½ç½®
+	//#è¡¨ç¤ºå¢™ï¼Œä¸èƒ½èµ°ï¼Œ.è¡¨ç¤ºå¯ä»¥èµ°
 	time_t tbegin = time(nullptr);
 	std::vector<std::string>data{
 			"#S######.#",
@@ -125,7 +125,7 @@ void Test1() {
 
 
 int Migong::Test() {
-	//Á½ÖÖ·½·¨µÄĞ§ÂÊ²î²»¶à£¬Ö»ÊÇ·½·¨¶şµÄ¿Õ¼ä¸´ÔÓ¶È¸ü¸ß
+	//ä¸¤ç§æ–¹æ³•çš„æ•ˆç‡å·®ä¸å¤šï¼Œåªæ˜¯æ–¹æ³•äºŒçš„ç©ºé—´å¤æ‚åº¦æ›´é«˜
 	Test1(); 
 	Test2();
 	return 0;

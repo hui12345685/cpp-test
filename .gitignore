@@ -11,9 +11,11 @@ similar_leetcode/reverse_list/x64
 similar_leetcode/daba_fenshu/x64
 similar_leetcode/fib_template/x64
 similar_leetcode/migong/x64
+similar_leetcode/string_include/x64
 sort/.vs/
 sort/x64/
 sort/sort/x64/
 sort/heap_sort/x64/
 sort/insert_sort/x64/
 sort/topk/x64/
+test

@@ -1,10 +1,10 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_map>
 #include <queue>
 
-//¸øÒ»×é×Ö·û´®ºÍ×Ö·û´®µÄË³Ğò(Ë³Ğò°´ÕÕorderÀ´£¬²¢·Çabcde....xyz)£¬ÅĞ¶ÏÕâÒ»×é×Ö·û´®ÊÇ²»ÊÇ°´ĞòÅÅÁĞµÄ
+//ç»™ä¸€ç»„å­—ç¬¦ä¸²å’Œå­—ç¬¦ä¸²çš„é¡ºåº(é¡ºåºæŒ‰ç…§orderæ¥ï¼Œå¹¶éabcde....xyz)ï¼Œåˆ¤æ–­è¿™ä¸€ç»„å­—ç¬¦ä¸²æ˜¯ä¸æ˜¯æŒ‰åºæ’åˆ—çš„
 bool IsbyOrder(std::vector<std::string>& words, std::string& order) {
   if (words.size() <= 1){
     return true;
@@ -16,7 +16,7 @@ bool IsbyOrder(std::vector<std::string>& words, std::string& order) {
     ch_seq.insert(std::pair<char, int>(ch,idx++));
   }
 
-  //Á½Á½±È½Ï°É
+  //ä¸¤ä¸¤æ¯”è¾ƒå§
   bool ret = true;
   std::string pre = words[0];
   for (int idx = 1; idx < words.size(); idx++) {
@@ -25,23 +25,23 @@ bool IsbyOrder(std::vector<std::string>& words, std::string& order) {
       if (jdx < pre.size() && jdx < cur.size()){
         std::unordered_map<char, int>::iterator pit = ch_seq.find(pre[jdx]);
         std::unordered_map<char, int>::iterator cit = ch_seq.find(cur[jdx]);
-        if (pit == ch_seq.end()) {//·Ç·¨×Ö·û
+        if (pit == ch_seq.end()) {//éæ³•å­—ç¬¦
           return false;
         }
-        if (cit == ch_seq.end()) {//·Ç·¨×Ö·û
+        if (cit == ch_seq.end()) {//éæ³•å­—ç¬¦
           return false;
         }
-        if (pit->second > cit->second) {//²»Âú×ãÌõ¼ş
+        if (pit->second > cit->second) {//ä¸æ»¡è¶³æ¡ä»¶
           return false;
         }
-        if (pit->second < cit->second){//³ÉÁ¢£¬Ö±½Ó±È½ÏÏÂÒ»¸ö
+        if (pit->second < cit->second){//æˆç«‹ï¼Œç›´æ¥æ¯”è¾ƒä¸‹ä¸€ä¸ª
           break;
         }
       }
       //apple > app
       //app < apple
-      if ((pre.size() > cur.size() && jdx >= cur.size())){//Ç°ÃæµÄ¶¼ÏàµÈ£¬cur¸ü³¤
-        //ÈçappleÔÚappÇ°ÃæµÄÊ±ºò
+      if ((pre.size() > cur.size() && jdx >= cur.size())){//å‰é¢çš„éƒ½ç›¸ç­‰ï¼Œcuræ›´é•¿
+        //å¦‚appleåœ¨appå‰é¢çš„æ—¶å€™
         ret = false;
       }
       if (!ret){
@@ -56,14 +56,14 @@ bool IsbyOrder(std::vector<std::string>& words, std::string& order) {
   return ret;
 }
 
-//¸øÒ»×é×Ö·û´®£¬ÊÇ°´ÕÕË³ĞòÅÅĞòµÄ£¬ÒªÇó¸ø³öËùÓĞµÄ×Ö·û×ÖµäĞò(·ÇÏÖÓĞ×Ö·ûµÄË³Ğò)
-//ÕâÖÖ·½Ê½µÄ½á¹ûÓ¦¸Ã²»¶Ô£¿£¿£¿
+//ç»™ä¸€ç»„å­—ç¬¦ä¸²ï¼Œæ˜¯æŒ‰ç…§é¡ºåºæ’åºçš„ï¼Œè¦æ±‚ç»™å‡ºæ‰€æœ‰çš„å­—ç¬¦å­—å…¸åº(éç°æœ‰å­—ç¬¦çš„é¡ºåº)
+//è¿™ç§æ–¹å¼çš„ç»“æœåº”è¯¥ä¸å¯¹ï¼Ÿï¼Ÿï¼Ÿ
 std::string test2(std::vector<std::string>& words) {
   std::string sret;
   if (words.empty()) {
     return sret;
   }
-  std::list<std::pair<char, char>> greater;//±£´æËùÓĞµÄĞ¡ÓÚ¹ØÏµ
+  std::list<std::pair<char, char>> greater;//ä¿å­˜æ‰€æœ‰çš„å°äºå…³ç³»
   std::string pre = words[0];
   for (int idx = 1; idx < words.size(); idx++) {
     std::string cur = words[idx];
@@ -98,7 +98,7 @@ std::string test2(std::vector<std::string>& words) {
   return sret;
 }
 
-//¸øÒ»×é×Ö·û´®£¬ÊÇ°´ÕÕË³ĞòÅÅĞòµÄ£¬ÒªÇó¸ø³öËùÓĞµÄ×Ö·û×ÖµäĞò(·ÇÏÖÓĞ×Ö·ûµÄË³Ğò)
+//ç»™ä¸€ç»„å­—ç¬¦ä¸²ï¼Œæ˜¯æŒ‰ç…§é¡ºåºæ’åºçš„ï¼Œè¦æ±‚ç»™å‡ºæ‰€æœ‰çš„å­—ç¬¦å­—å…¸åº(éç°æœ‰å­—ç¬¦çš„é¡ºåº)
 /*std::list<char>*/std::string TopSortBfs(std::vector<std::string>& words) {
   std::list<char> str_ret;
   std::string sret;
@@ -106,7 +106,7 @@ std::string test2(std::vector<std::string>& words) {
     //return str_ret;
     return sret;
   }
-  std::list<std::pair<char, char>> greater;//±£´æËùÓĞµÄĞ¡ÓÚ¹ØÏµ
+  std::list<std::pair<char, char>> greater;//ä¿å­˜æ‰€æœ‰çš„å°äºå…³ç³»
   std::string pre = words[0];
   for (int idx = 1; idx < words.size(); idx++) {
     std::string cur = words[idx];
@@ -120,17 +120,17 @@ std::string test2(std::vector<std::string>& words) {
     pre = cur;
   }
 
-  std::unordered_map<char, int> in_cnt;//±íÊ¾Ã¿Ò»¸ö×Ö·û´óÓÚÆäËû×Ö·ûµÄÊıÁ¿
-  std::unordered_map<char, std::list<char>> edges;//±íÊ¾Ã¿¸ö×Ö·ûĞ¡ÓÚÁËÄÄ¼¸¸ö×Ö·û
+  std::unordered_map<char, int> in_cnt;//è¡¨ç¤ºæ¯ä¸€ä¸ªå­—ç¬¦å¤§äºå…¶ä»–å­—ç¬¦çš„æ•°é‡
+  std::unordered_map<char, std::list<char>> edges;//è¡¨ç¤ºæ¯ä¸ªå­—ç¬¦å°äºäº†å“ªå‡ ä¸ªå­—ç¬¦
   for (auto& ls : greater) {
     auto it = in_cnt.find(ls.first);
-    //³õÊ¼»¯´óÓÚµÄÊıÁ¿Îª0µÄ
+    //åˆå§‹åŒ–å¤§äºçš„æ•°é‡ä¸º0çš„
     if (it == in_cnt.end()) {
       in_cnt.insert(std::pair<char, int>(ls.first, 0));
     }
 
     auto it1 = in_cnt.find(ls.second);
-    //³õÊ¼»¯´óÓÚµÄÊıÁ¿Îª·Ç0µÄ
+    //åˆå§‹åŒ–å¤§äºçš„æ•°é‡ä¸ºé0çš„
     if (it1 == in_cnt.end()) {
       in_cnt.insert(std::pair<char, int>(ls.second, 1));
     }
@@ -159,11 +159,11 @@ std::string test2(std::vector<std::string>& words) {
   while (!que.empty()){
     char ch = que.front();
     que.pop();
-    in_cnt.erase(ch);//·Åµ½¶ÓÁĞµÄ¼ÇµÃÒªÉ¾³ı£¬·ñÔòËÀÑ­»·ÁË£¬³ö²»À´
+    in_cnt.erase(ch);//æ”¾åˆ°é˜Ÿåˆ—çš„è®°å¾—è¦åˆ é™¤ï¼Œå¦åˆ™æ­»å¾ªç¯äº†ï¼Œå‡ºä¸æ¥
     str_ret.push_back(ch);
     const auto& it = edges.find(ch);
     if (it != edges.end()){
-      //±éÀú¹ØÁªµÄ
+      //éå†å…³è”çš„
       for (const auto lsch:it->second){
         auto bit = in_cnt.find(lsch);
         if (bit != in_cnt.end()){

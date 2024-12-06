@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 
 const int score = 90;
 const int num = 10;
@@ -9,16 +9,16 @@ void BackTracking(int start, int sum, int& count) {
 	if (sum > score|| start > num) {
 		return;
 	}
-	//¼ôÖ¦
+	//å‰ªæ
 	if ((sum + 10 * (num - start)) < score) {
 		return;
 	}
 	if (start == num && sum == score) {
 		count++;
 	}
-	//forÑ­»·¿ØÖÆ»·Êı
+	//forå¾ªç¯æ§åˆ¶ç¯æ•°
 	for (int i = 0; i <= 10; i++) {
-		//»ØËİ¿ØÖÆ´ÎÊı
+		//å›æº¯æ§åˆ¶æ¬¡æ•°
 		BackTracking(start + 1, sum + i, count);
 	}
 }
@@ -29,8 +29,8 @@ int Cacl() {
 	return count;
 }
 
-//1£º´ò°Ğ10´Î£¬ÄÜ´òÖĞ90»·µÄÇé¿öÓĞ¶àÉÙÖĞ(¼ÙÈçÄÜ´òÖĞ0µ½10»·ÖĞµÄÒ»ÖÖÇé¿ö)
-//2£º¼ÙÈçÃ¿ÖÖ»·Êı´òÖĞµÄ¸ÅÂÊÏàµÈ£¬ÎÊ´òÖĞ90»·µÄ¸ÅÂÊÊÇ¶àÉÙ
+//1ï¼šæ‰“é¶10æ¬¡ï¼Œèƒ½æ‰“ä¸­90ç¯çš„æƒ…å†µæœ‰å¤šå°‘ä¸­(å‡å¦‚èƒ½æ‰“ä¸­0åˆ°10ç¯ä¸­çš„ä¸€ç§æƒ…å†µ)
+//2ï¼šå‡å¦‚æ¯ç§ç¯æ•°æ‰“ä¸­çš„æ¦‚ç‡ç›¸ç­‰ï¼Œé—®æ‰“ä¸­90ç¯çš„æ¦‚ç‡æ˜¯å¤šå°‘
 void Function1() {
 	int count = Cacl();
 	std::cout << "count:" << count << std::endl;
