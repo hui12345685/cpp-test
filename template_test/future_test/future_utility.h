@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <atomic>
 #include <vector>
@@ -69,7 +69,7 @@ namespace internal {
 */
 template <typename Tuple, typename F, std::size_t... Indices>
 constexpr void for_each_impl(Tuple &&tuple, F &&f, std::index_sequence<Indices...>) {
-  //Ô­À´ÕâÀïÊÇÔÚ±éÀú£¬ÊÇÉ¶Óï·¨?
+  //åŸæ¥è¿™é‡Œæ˜¯åœ¨éå†ï¼Œæ˜¯å•¥è¯­æ³•?
   int ignore[] = {1, (f(std::get<Indices>(std::forward<Tuple>(tuple))), void(), int{})...};
   (void)ignore;
 }
@@ -92,11 +92,11 @@ class WhenAllFunction {
     auto &input_fut = fut;
     DoWith(std::move(fut), [&futs, &input_fut, counter = counter_, pr = pr_](Fut &fut) mutable {
       return fut.Then([&futs, &input_fut, counter, pr](std::remove_reference_t<Fut> &&result) mutable {
-		//n¸ö²ÎÊıÉèÖÃn´Î»Øµ÷
+		//nä¸ªå‚æ•°è®¾ç½®næ¬¡å›è°ƒ
         input_fut = std::move(result);
         auto current = (*counter).fetch_add(1);
         if (current + 1 == std::tuple_size<Tuple>::value) {
-		  //µ±n´Î»Øµ÷¶¼ÂúÁËµÄÊ±ºò£¬¼´ÉèÖÃºÃÁËÖµ£¬È»ºó¾Í»áµ÷ÓÃ×î³õµÄ»Øµ÷º¯Êı
+		  //å½“næ¬¡å›è°ƒéƒ½æ»¡äº†çš„æ—¶å€™ï¼Œå³è®¾ç½®å¥½äº†å€¼ï¼Œç„¶åå°±ä¼šè°ƒç”¨æœ€åˆçš„å›è°ƒå‡½æ•°
           pr.SetValue(std::move(futs));
         }
         return MakeReadyFuture<>();

@@ -1,7 +1,7 @@
-simple_test/.vs/
-simple_test/x64/
-simple_test/future_test/x64
-simple_test/mempro_file_test/x64
+template_test/.vs/
+template_test/x64/
+template_test/future_test/x64
+template_test/mempro_file_test/x64
 similar_leetcode/.vs/
 similar_leetcode/x64/
 similar_leetcode/char_order/x64
@@ -12,6 +12,7 @@ similar_leetcode/daba_fenshu/x64
 similar_leetcode/fib_template/x64
 similar_leetcode/migong/x64
 similar_leetcode/string_include/x64
+similar_leetcode/string_minus/x64
 sort/.vs/
 sort/x64/
 sort/sort/x64/

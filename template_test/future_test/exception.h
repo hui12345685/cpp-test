@@ -1,4 +1,4 @@
-/*
+﻿/*
   Copyright 2018
 
   Exception for future, using member function is(ExceptionType) to

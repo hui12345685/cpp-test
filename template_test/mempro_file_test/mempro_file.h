@@ -1,4 +1,4 @@
-
+ï»¿
 #pragma once
 
 #include <type_traits>
@@ -30,7 +30,7 @@ namespace bdf {
       template<bool pod>
       struct alloc_triats {};
 
-      //Æ½·²ÀàĞÍ
+      //å¹³å‡¡ç±»å‹
       template<>
       struct alloc_triats<true> {
         template<typename T>
@@ -46,7 +46,7 @@ namespace bdf {
         static void destruct(T*) {}
       };
 
-      //²»Æ½·²ÀàĞÍ
+      //ä¸å¹³å‡¡ç±»å‹
       template<>
       struct alloc_triats<false> {
         template<typename T, typename... Args>
@@ -65,7 +65,7 @@ namespace bdf {
       struct construct_traits {
         static void construct(T* buffer) {
           //alloc_triats<std::is_pod<T>::value>::construct(buffer);
-          //c++20¿ªÊ¼is_pod·ÏÆú£¬¿ÉÒÔÊ¹ÓÃis_trivialºÍis_standard_layoutÀ´´úÌæ
+          //c++20å¼€å§‹is_podåºŸå¼ƒï¼Œå¯ä»¥ä½¿ç”¨is_trivialå’Œis_standard_layoutæ¥ä»£æ›¿
           auto val = std::is_trivial<T>::value && std::is_standard_layout<T>::value;
           alloc_triats<val>::construct(buffer);
         }
@@ -73,14 +73,14 @@ namespace bdf {
         template<typename... Args>
         static void construct(T* buffer, const Args&... args) {
           //alloc_triats<std::is_pod<T>::value>::construct(buffer, args...);
-          //c++20¿ªÊ¼is_pod·ÏÆú£¬¿ÉÒÔÊ¹ÓÃis_trivialºÍis_standard_layoutÀ´´úÌæ
+          //c++20å¼€å§‹is_podåºŸå¼ƒï¼Œå¯ä»¥ä½¿ç”¨is_trivialå’Œis_standard_layoutæ¥ä»£æ›¿
           auto val = std::is_trivial<T>::value && std::is_standard_layout<T>::value;
           alloc_triats<val>::construct(buffer, args...);
         }
 
         static void destruct(T* buffer) {
           //alloc_triats<std::is_pod<T>::value>::destruct(buffer);
-          //c++20¿ªÊ¼is_pod·ÏÆú£¬¿ÉÒÔÊ¹ÓÃis_trivialºÍis_standard_layoutÀ´´úÌæ
+          //c++20å¼€å§‹is_podåºŸå¼ƒï¼Œå¯ä»¥ä½¿ç”¨is_trivialå’Œis_standard_layoutæ¥ä»£æ›¿
           auto val = std::is_trivial<T>::value && std::is_standard_layout<T>::value;
           alloc_triats<val>::destruct(buffer);
         }
