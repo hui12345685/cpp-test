@@ -19,4 +19,7 @@ sort/sort/x64/
 sort/heap_sort/x64/
 sort/insert_sort/x64/
 sort/topk/x64/
-test
+simple_test/simple_test/.vs/
+simple_test/simple_test/x64/
+simple_test/simple_test/bitmap_without_bitwise/x64/
+simple_test/simple_test/bitset/x64/
