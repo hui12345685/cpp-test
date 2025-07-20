@@ -1,6 +1,8 @@
 #include <iostream>
 #include "bitmap.h"
 
+void test_bitmap2(const std::vector<std::string>& data);
+
 // ²âÊÔº¯Êı
 void test_bitmap() {
   UnsignedBitmap32 bm(512);
@@ -47,6 +49,28 @@ void test_bitmap() {
   catch (const std::out_of_range& e) {
     std::cout << "Successfully caught exception: " << e.what() << "\n";
   }
+
+  std::vector<std::string> data = bm.GetBitIntString();
+  std::cout << "\nbit map data:\n";
+  std::cout << "[";
+  for (int id = 0; id < data.size(); id++) {
+    std::cout << data[id] << " ";
+  }
+  std::cout << "]\n";
+  test_bitmap2(data);
+}
+
+void test_bitmap2(const std::vector<std::string>& data) {
+  UnsignedBitmap32 bm(data);
+
+  std::cout << "\ntest_bitmap2 Testing bits:\n";
+  std::cout << "Bit 31: " << bm.test(31) << " (expected: 1)\n";
+  std::cout << "Bit 3: " << bm.test(3) << " (expected: 1)\n";
+  std::cout << "Bit 4: " << bm.test(4) << " (expected: 0)\n";
+  std::cout << "Bit 30: " << bm.test(30) << " (expected: 0)\n";
+  std::cout << "Bit 50: " << bm.test(50) << " (expected: 0)\n";
+  std::cout << "Bit 330: " << bm.test(330) << " (expected: 0)\n";
+  std::cout << "Bit 511: " << bm.test(511) << " (expected: 1)\n";
 }
 
 int main() {

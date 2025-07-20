@@ -93,6 +93,23 @@ public:
     std::cout << "\n";
   }
 
+  std::vector<std::string> GetBitIntString() const {
+    std::vector<std::string> result;
+    for (size_t i = 0; i < blocks_.size(); ++i) {
+      result.emplace_back(std::to_string(blocks_[i]));
+    }
+    return result;
+  }
+
+  // 通过字符串数组构造bitmap
+  explicit UnsignedBitmap32(const std::vector<std::string>& data)
+    : size_(data.size() * 32),
+    blocks_(data.size(), 0) {
+    for (size_t i = 0; i < blocks_.size(); ++i) {
+      blocks_[i] = atoll( data[i].c_str());
+    }
+  }
+
 private:
   // 检查位置是否越界
   void check_bounds(size_t pos) const {

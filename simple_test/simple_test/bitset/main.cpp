@@ -8,7 +8,6 @@ int main() {
   bitmap.set(20);     // 设置第 20 位为 1
   bitmap.set(30);     // 设置第 30 位为 1
 
-
   std::cout << "Test bit 10: " << bitmap.test(10) << std::endl; // 1 (true)
   std::cout << "Test bit 15: " << bitmap.test(15) << std::endl; // 0 (false)
 
